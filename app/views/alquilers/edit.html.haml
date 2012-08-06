@@ -1,0 +1,7 @@
+%h3
+  Editar Alquiler
+= render "availability"
+= form_for @alquiler, method: :put do |f|
+  .row
+    = render "form", f: f
+  = f.submit "Guardar", :class => "btn btn-primary"

@@ -1,0 +1,8 @@
+%h3
+  Nuevo Alquiler
+= render "availability"
+= form_for @alquiler, :class => "well"  do |f|
+  .row
+    = render "form", f: f
+
+  = f.submit "Guardar", :class => "btn btn-primary"

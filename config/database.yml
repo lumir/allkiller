@@ -1,0 +1,16 @@
+#YAML::ENGINE.yamler
+defaults: &defaults
+  adapter: postgresql
+  template: template0
+
+development:
+  <<: *defaults
+  database: "allkiller_dev"
+
+staging:
+  <<: *defaults
+  database: "allkiller_staging"
+
+test:
+  <<: *defaults
+  database: "allkiller_test"

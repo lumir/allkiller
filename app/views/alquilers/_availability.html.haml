@@ -1,0 +1,9 @@
+.availability_container
+  %h4
+    Disponibilidad
+  .row
+    - @availables.each do |key, value| 
+      .span2
+        =key
+      .span4 
+        =value

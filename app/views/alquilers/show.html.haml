@@ -1,0 +1,13 @@
+= @alquiler.name
+= @alquiler.identifier
+= @alquiler.deliver_date
+= @alquiler.address
+= @alquiler.phone
+= @alquiler.chairs
+= @alquiler.tables
+= @alquiler.big_tables
+= @alquiler.tablecloth
+= @alquiler.big_tablecloth
+= @alquiler.total
+= link_to "Editar", edit_alquiler_path(@alquiler)
+= link_to "Borrar", alquiler_path(@alquiler), method: :delete

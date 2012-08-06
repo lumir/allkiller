@@ -1,0 +1,39 @@
+.span4
+  = f.label "Nombre:"
+  = f.text_field :name
+  = f.label "Cedula:"
+  = f.text_field :identifier
+  = f.label "Direccion:"
+  = f.text_field :address
+  = f.label "Telefono:"
+  = f.text_field :phone
+.span4
+  = f.label "Fecha:"
+  = f.text_field :deliver_date, :class => "datepicker"
+  = f.label "Sillas:"
+  = f.text_field :chairs
+  = f.label "Mesitas:"
+  = f.text_field :tables
+  = f.label "Mezones:"
+  = f.text_field :big_tables
+.span4
+  = f.label "Manteles sencillos:"
+  = f.text_field :tablecloth
+  = f.label "Manteles Grandes:"
+  = f.text_field :big_tablecloth
+  = f.label "Total:"
+  = f.text_field :total  
+
+
+
+:javascript
+  $(function(){
+
+    $(".datepicker").datepicker({
+      changeMonth: true,
+      changeYear: true,
+      dateFormat: "yy-mm-dd"
+    });
+
+
+  });

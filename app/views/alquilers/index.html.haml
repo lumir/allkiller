@@ -1,0 +1,46 @@
+%h3
+  Listado de Alquileres
+
+= link_to "Nuevo Alquiler", new_alquiler_path, :class => "pull-right"
+
+%table.table
+  %thead
+    %tr
+      %th
+        Nombre
+      %th
+        Direccion
+      %th
+        Sillas
+      %th
+        Mesitas
+      %th
+        Mesones
+      %th
+        Manteles Sencillos
+      %th
+        Manteles Grandes
+      %th
+        Fecha de Entrega
+  - @alquilers.each do |alquiler|
+    %tr
+      %td
+        = link_to alquiler.name, alquiler_path(alquiler)
+      %td
+        = alquiler.address
+      %td
+        = alquiler.chairs
+      %td
+        = alquiler.tables
+      %td
+        = alquiler.big_tables
+      %td
+        = alquiler.tablecloth
+      %td
+        = alquiler.big_tablecloth
+      %td
+        = alquiler.deliver_date
+      %td
+        = link_to "Editar", edit_alquiler_path(alquiler)
+      %td
+        = link_to "Borrar", alquiler_path(alquiler), method: :delete
