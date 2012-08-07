@@ -1,8 +1,8 @@
 class Alquiler < ActiveRecord::Base
    attr_accessible :name, :identifier, :address, :phone, :chairs, :tables, :big_tables, :tablecloth, :big_tablecloth, :deliver_date, :total, :abono, :status 
 
-   AMMOUNT = {chairs: 700, tables: 40, big_tables: 80, tablecloth: 40, big_tablecloth: 40 } 
-   PRICES = {chairs: 500, tables: 500, big_tables: 2000, tablecloth: 1500, big_tablecloth: 3000 }
+   AMMOUNT = {chairs: 630, tables: 38, big_tables: 64, tablecloth: 35, big_tablecloth: 19 } 
+   PRICES = {chairs: 500, tables: 800, big_tables: 2000, tablecloth: 2000, big_tablecloth: 3000 }
 
    def self.get_available(date)
       available_chairs = AMMOUNT[:chairs] - self.sum(:chairs, conditions: {:deliver_date => date})      
