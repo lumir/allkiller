@@ -1,3 +1,5 @@
+- Alquiler::PRICES.each do |key,value|   
+  = hidden_field_tag "#{key}", value
 .span4
   = f.label "Nombre:"
   = f.text_field :name
@@ -9,18 +11,18 @@
   = f.text_field :phone
 .span4
   = f.label "Fecha:"
-  = f.text_field :deliver_date, :class => "datepicker"
+  = f.text_field :deliver_date, :class => "datepicker" 
   = f.label "Sillas:"
-  = f.text_field :chairs
+  = f.text_field :chairs, :class => "pricing", "data-pricing" => "chairs"
   = f.label "Mesitas:"
-  = f.text_field :tables
+  = f.text_field :tables, :class => "pricing", "data-pricing" => "tables"
   = f.label "Mezones:"
-  = f.text_field :big_tables
+  = f.text_field :big_tables, :class => "pricing", "data-pricing" => "big_tables"
 .span4
   = f.label "Manteles sencillos:"
-  = f.text_field :tablecloth
+  = f.text_field :tablecloth, :class => "pricing", "data-pricing" => "tablecloth"
   = f.label "Manteles Grandes:"
-  = f.text_field :big_tablecloth
+  = f.text_field :big_tablecloth, :class => "pricing", "data-pricing" => "big_tablecloth"
   = f.label "Total:"
   = f.text_field :total  
 
@@ -29,10 +31,39 @@
 :javascript
   $(function(){
 
+    $(".pricing").change(function(){
+      var pricing = $(this).attr("data-pricing");
+      console.log("pricing: "+pricing)
+      var ammount = parseFloat($(this).val());
+      console.log("ammount: "+ammount)
+      var price = parseFloat($("#"+pricing).val());      
+      console.log("price: "+price)
+      var result = price * ammount
+      console.log("result: "+result)
+      var current_total = $("#alquiler_total").val();
+      console.log("current_total: "+current_total)
+      if(current_total == ""){
+        current_total = 0;
+      }
+      var new_total = parseFloat(current_total) + result
+      console.log("new_total: "+new_total)
+      $("#alquiler_total").val(new_total)
+    });
+
+
     $(".datepicker").datepicker({
       changeMonth: true,
       changeYear: true,
-      dateFormat: "yy-mm-dd"
+      dateFormat: "yy-mm-dd",
+      onSelect: function(dateText,inst){
+
+        $.ajax({
+          url: "/get_availables",
+          type: "GET",          
+          data: {'selected_date' : dateText}
+        })
+
+      }
     });
 
 

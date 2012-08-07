@@ -1,0 +1,4 @@
+$("#availability_container").html("");
+$("#availability_container").html("<%= escape_javascript(render 'availability', availables: @availables) %>");
+
+

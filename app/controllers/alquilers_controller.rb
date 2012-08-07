@@ -10,8 +10,8 @@ class AlquilersController < ApplicationController
 
   def new
     @availables = Alquiler.get_available(Date.today)
-    @alquiler = Alquiler.new  
-  end
+    @alquiler = Alquiler.new(deliver_date: Date.today) 
+  end  
 
   def create
     @alquiler = Alquiler.new(params[:alquiler])
@@ -44,5 +44,21 @@ class AlquilersController < ApplicationController
     @alquiler.destroy
     flash[:success] = "Alquiler grabado"
     redirect_to root_path    
+  end
+
+
+  #TODO create specific controllers
+  def get_availables    
+    @availables = Alquiler.get_available(params[:selected_date])    
+    respond_to do |format|      
+      format.js
+    end
+  end
+
+  def search
+    @alquilers = Alquiler.where(:deliver_date => params[:selected_date])
+    respond_to do |format|      
+      format.js
+    end
   end
 end

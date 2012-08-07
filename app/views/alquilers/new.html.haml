@@ -1,6 +1,7 @@
 %h3
   Nuevo Alquiler
-= render "availability"
+#availability_container.availability_container
+  = render "availability", availables: @availables
 = form_for @alquiler, :class => "well"  do |f|
   .row
     = render "form", f: f
