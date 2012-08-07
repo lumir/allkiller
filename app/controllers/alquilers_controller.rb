@@ -25,6 +25,7 @@ class AlquilersController < ApplicationController
   end
 
   def edit
+    @availables = Alquiler.get_available(Date.today)
     @alquiler = Alquiler.find(params[:id])    
   end
 
