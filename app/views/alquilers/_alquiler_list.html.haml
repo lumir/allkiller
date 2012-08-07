@@ -50,7 +50,7 @@
       %td
         = alquiler.total
       %td
-        = alquiler.total - alquiler.abono unless alquiler.total.blank? && alquiler.abono.blank?
+        = alquiler.total - alquiler.abono unless alquiler.total.blank? || alquiler.abono.blank?
       %td
         = link_to "Editar", edit_alquiler_path(alquiler)
       %td
