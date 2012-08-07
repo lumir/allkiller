@@ -1,6 +1,9 @@
 %h3
   Listado de Alquileres
 
+#availability_container.availability_container
+  = render "availability", availables: @availables
+
 .pull-right  
   =label_tag "Buscar por fecha: "
   =text_field_tag :search,"", :class => "datepicker"

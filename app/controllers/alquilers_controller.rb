@@ -1,6 +1,7 @@
 class AlquilersController < ApplicationController
 
   def index
+    @availables = Alquiler.get_available(Date.today)
     @alquilers = Alquiler.all
   end
 
@@ -24,9 +25,9 @@ class AlquilersController < ApplicationController
     end
   end
 
-  def edit
-    @availables = Alquiler.get_available(Date.today)
+  def edit    
     @alquiler = Alquiler.find(params[:id])    
+    @availables = Alquiler.get_available(@alquiler.deliver_date)
   end
 
   def update
@@ -57,6 +58,7 @@ class AlquilersController < ApplicationController
   end
 
   def search
+    @availables = Alquiler.get_available(params[:selected_date])
     @alquilers = Alquiler.where(:deliver_date => params[:selected_date])
     respond_to do |format|      
       format.js

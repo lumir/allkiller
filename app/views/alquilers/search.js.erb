@@ -1,2 +1,5 @@
+$("#availability_container").html("");
+$("#availability_container").html("<%= escape_javascript(render 'availability', availables: @availables) %>");
+
 $("#alquiler_list_container").html("");
 $("#alquiler_list_container").html("<%= escape_javascript(render 'alquiler_list', alquilers: @alquilers) %>");
