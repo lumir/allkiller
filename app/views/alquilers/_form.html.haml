@@ -34,15 +34,51 @@
   $(function(){
 
     $(".pricing").change(function(){
-      var pricing = $(this).attr("data-pricing");      
-      var ammount = parseInt($(this).val());      
-      var price = parseInt($("#"+pricing).val());            
-      var result = price * ammount      
-      var current_total = $("#alquiler_total").val();      
-      if(current_total == ""){
-        current_total = 0;
+      
+      var chairs_ammount = $("#alquiler_chairs").val();
+      var tables_ammount = $("#alquiler_tables").attr("value");      
+      var big_tables_ammount = $("#alquiler_big_tables").val();
+      var big_tablecloth_ammount = $("#alquiler_big_tablecloth").val();
+      var tablecloth_ammount = $("#alquiler_tablecloth").val();
+
+      var chairs_price = parseInt($("#chairs").val());            
+      var tables_price = parseInt($("#tables").val());            
+      var big_tables_price = parseInt($("#big_tables").val());            
+      var tablecloth_price = parseInt($("#tablecloth").val());            
+      var big_tablecloth_price = parseInt($("#big_tablecloth").val());                
+
+      if(chairs_ammount == ""){
+        chairs_ammount = 0;
+      }else{
+        parseInt($("#alquiler_chairs").val());
       }
-      var new_total = parseFloat(current_total) + result      
+
+      if(tables_ammount == ""){
+        tables_ammount = 0;
+      }else{
+        parseInt($("#alquiler_tables").attr("value"));      
+      }
+
+      if(big_tables_ammount == ""){
+        big_tables_ammount = 0;
+      }else{
+        parseInt($("#alquiler_big_tables").val());
+      }
+
+      if(tablecloth_ammount == ""){
+        tablecloth_ammount = 0;
+      }else{
+        parseInt($("#alquiler_tablecloth").val());
+      }
+
+      if(big_tablecloth_ammount == ""){
+        big_tablecloth_ammount = 0;
+      }else{
+        parseInt($("#alquiler_big_tablecloth").val());
+      }
+
+      var new_total = (chairs_ammount * chairs_price) + (tables_ammount * tables_price) + (big_tables_ammount * big_tables_price) + (tablecloth_ammount * tablecloth_price) + (big_tablecloth_ammount * big_tablecloth_price);
+      
       $("#alquiler_total").val(new_total)
     });
 
