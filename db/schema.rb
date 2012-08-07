@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120806011430) do
+ActiveRecord::Schema.define(:version => 20120807153948) do
 
   create_table "alquilers", :force => true do |t|
     t.string   "name"
@@ -24,9 +24,11 @@ ActiveRecord::Schema.define(:version => 20120806011430) do
     t.integer  "big_tables"
     t.integer  "tablecloth"
     t.integer  "big_tablecloth"
-    t.float    "total"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.integer  "total"
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
+    t.integer  "abono"
+    t.boolean  "status",         :default => false
   end
 
 end

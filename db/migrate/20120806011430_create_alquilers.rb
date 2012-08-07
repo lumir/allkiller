@@ -11,7 +11,7 @@ class CreateAlquilers < ActiveRecord::Migration
       t.integer :big_tables
       t.integer :tablecloth
       t.integer :big_tablecloth
-      t.float :total
+      t.integer :total
       t.timestamps
     end
   end

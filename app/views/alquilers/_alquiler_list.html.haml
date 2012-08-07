@@ -1,8 +1,10 @@
-%table.table
+%table.table.table-bordered
   %thead
     %tr
       %th
         Nombre
+      %th
+        Cedula
       %th
         Direccion
       %th
@@ -17,10 +19,18 @@
         Manteles Grandes
       %th
         Fecha de Entrega
+      %th
+        Abono
+      %th
+        Total
+      %th
+        Resta
   - alquilers.each do |alquiler|
     %tr
       %td
         = link_to alquiler.name, alquiler_path(alquiler)
+      %td
+        = alquiler.identifier
       %td
         = alquiler.address
       %td
@@ -35,6 +45,12 @@
         = alquiler.big_tablecloth
       %td
         = alquiler.deliver_date.strftime("%e %B")
+      %td
+        = alquiler.abono
+      %td
+        = alquiler.total
+      %td
+        = alquiler.total - alquiler.abono
       %td
         = link_to "Editar", edit_alquiler_path(alquiler)
       %td

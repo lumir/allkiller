@@ -23,6 +23,8 @@
   = f.text_field :tablecloth, :class => "pricing", "data-pricing" => "tablecloth"
   = f.label "Manteles Grandes:"
   = f.text_field :big_tablecloth, :class => "pricing", "data-pricing" => "big_tablecloth"
+  = f.label "Abono:"
+  = f.text_field :abono
   = f.label "Total:"
   = f.text_field :total  
 
@@ -32,21 +34,15 @@
   $(function(){
 
     $(".pricing").change(function(){
-      var pricing = $(this).attr("data-pricing");
-      console.log("pricing: "+pricing)
-      var ammount = parseFloat($(this).val());
-      console.log("ammount: "+ammount)
-      var price = parseFloat($("#"+pricing).val());      
-      console.log("price: "+price)
-      var result = price * ammount
-      console.log("result: "+result)
-      var current_total = $("#alquiler_total").val();
-      console.log("current_total: "+current_total)
+      var pricing = $(this).attr("data-pricing");      
+      var ammount = parseInt($(this).val());      
+      var price = parseInt($("#"+pricing).val());            
+      var result = price * ammount      
+      var current_total = $("#alquiler_total").val();      
       if(current_total == ""){
         current_total = 0;
       }
-      var new_total = parseFloat(current_total) + result
-      console.log("new_total: "+new_total)
+      var new_total = parseFloat(current_total) + result      
       $("#alquiler_total").val(new_total)
     });
 
