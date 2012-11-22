@@ -1,7 +1,7 @@
 class Alquiler < ActiveRecord::Base
    attr_accessible :name, :identifier, :address, :phone, :chairs, :tables, :big_tables, :tablecloth, :big_tablecloth, :deliver_date, :total, :abono, :status 
 
-   AMMOUNT = {chairs: 630, tables: 38, big_tables: 64, tablecloth: 35, big_tablecloth: 19 } 
+   AMMOUNT = {chairs: 790, tables: 38, big_tables: 68, tablecloth: 50, big_tablecloth: 20 } 
    PRICES = {chairs: 500, tables: 1000, big_tables: 2000, tablecloth: 2000, big_tablecloth: 3000 }
 
    def self.get_available(date)
