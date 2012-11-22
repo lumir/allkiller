@@ -6,4 +6,4 @@
   .row
     = render "form", f: f
 
-  = f.submit "Guardar", :class => "btn btn-primary"
+  = f.submit "Guardar", :class => "btn btn-primary", :disable_with => "Guardando..."
