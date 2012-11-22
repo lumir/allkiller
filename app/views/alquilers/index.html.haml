@@ -1,6 +1,7 @@
 %h3
   Listado de Alquileres
-
+.right
+  = link_to "Nuevo Alquiler", new_alquiler_path, :class => "btn btn-primary"
 #availability_container.availability_container
   = render "availability", availables: @availables
 
@@ -11,7 +12,7 @@
 #alquiler_list_container
   = render "alquiler_list", alquilers: @alquilers
 
-= link_to "Nuevo Alquiler", new_alquiler_path, :class => "btn btn-primary"
+
 
 :javascript
   $(function(){
