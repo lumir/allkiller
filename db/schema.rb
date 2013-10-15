@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120807153948) do
+ActiveRecord::Schema.define(:version => 20131014175336) do
 
   create_table "alquilers", :force => true do |t|
     t.string   "name"
@@ -29,6 +29,11 @@ ActiveRecord::Schema.define(:version => 20120807153948) do
     t.datetime "updated_at",                        :null => false
     t.integer  "abono"
     t.boolean  "status",         :default => false
+    t.integer  "small_chairs"
+    t.integer  "chaircloth"
+    t.integer  "sb_green"
+    t.integer  "sb_yellow"
+    t.integer  "sb_pink"
   end
 
 end
