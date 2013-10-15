@@ -2,23 +2,29 @@
   %thead
     %tr
       %th
-        Nombre
-      %th
-        Cedula
-      %th
-        Direccion
+        Nombre      
       %th
         Sillas
       %th
-        Mesitas
+        Sillitas
       %th
-        Mesones
+        Forros
       %th
-        Manteles Sencillos
+        Mesas
       %th
-        Manteles Grandes
+        Meson
       %th
-        Fecha de Entrega
+        Mant Senc
+      %th
+        Mant Gr
+      %th
+        Mant Fus
+      %th
+        Mant Ver
+      %th
+        Mant Ama
+      %th
+        Fecha
       %th
         Abono
       %th
@@ -28,13 +34,13 @@
   - alquilers.each do |alquiler|
     %tr
       %td
-        = link_to alquiler.name, alquiler_path(alquiler)
-      %td
-        = alquiler.identifier
-      %td
-        = alquiler.address
+        = link_to alquiler.name, alquiler_path(alquiler)      
       %td
         = alquiler.chairs
+      %td
+        = alquiler.small_chairs
+      %td
+        = alquiler.chaircloth
       %td
         = alquiler.tables
       %td
@@ -42,7 +48,13 @@
       %td
         = alquiler.tablecloth
       %td
-        = alquiler.big_tablecloth
+        = alquiler.big_tablecloth      
+      %td
+        = alquiler.sb_pink      
+      %td
+        = alquiler.sb_green
+      %td
+        = alquiler.sb_yellow      
       %td
         = alquiler.deliver_date.strftime("%e %B")
       %td

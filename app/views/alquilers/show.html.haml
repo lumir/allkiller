@@ -1,13 +1,78 @@
-= @alquiler.name
-= @alquiler.identifier
-= @alquiler.deliver_date
-= @alquiler.address
-= @alquiler.phone
-= @alquiler.chairs
-= @alquiler.tables
-= @alquiler.big_tables
-= @alquiler.tablecloth
-= @alquiler.big_tablecloth
-= @alquiler.total
-= link_to "Editar", edit_alquiler_path(@alquiler)
-= link_to "Borrar", alquiler_path(@alquiler), method: :delete
+= link_to "Atras", alquilers_path
+- Alquiler::PRICES.each do |key,value|   
+  = hidden_field_tag "#{key}", value
+.span4
+  %strong Nombre:
+  
+  = @alquiler.name
+.span4
+  %strong Cedula:
+  
+  = @alquiler.identifier
+.span4
+  %strong Direccion:
+  
+  = @alquiler.address
+.span4
+  %strong Telefono:
+
+  = @alquiler.phone
+.span4
+  %strong Fecha:
+
+  = @alquiler.deliver_date
+.span4  
+  %strong Sillas:
+
+  = @alquiler.chairs
+.span4  
+  %strong Mesitas:
+
+  = @alquiler.tables
+.span4  
+  %strong Mezones:
+
+  = @alquiler.big_tables
+.span4
+  %strong Sillas Pequeñas:
+
+  = @alquiler.small_chairs
+.span4
+  %strong Forros de sillas:
+
+  = @alquiler.chaircloth
+.span4
+  %strong Forros de sillas:
+
+  = @alquiler.chaircloth
+.span4
+  %strong Manteles sencillos:
+
+  = @alquiler.tablecloth
+.span4
+  %strong Manteles Grandes:
+
+  = @alquiler.big_tablecloth
+.span4
+  %strong Manteles amarillos:
+
+  = @alquiler.sb_yellow
+.span4
+  %strong Manteles fuscias:
+
+  = @alquiler.sb_pink
+.span4
+  %strong Manteles verdes:
+
+  = @alquiler.sb_green
+.span4
+  %strong Abono:
+
+  = @alquiler.abono
+.span4
+  %strong Total:
+
+  = @alquiler.total
+.span4
+  = link_to "Editar", edit_alquiler_path(@alquiler)
+  = link_to "Borrar", alquiler_path(@alquiler), method: :delete
