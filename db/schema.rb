@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131014175336) do
+ActiveRecord::Schema.define(:version => 20131104151324) do
 
   create_table "alquilers", :force => true do |t|
     t.string   "name"
@@ -34,6 +34,8 @@ ActiveRecord::Schema.define(:version => 20131014175336) do
     t.integer  "sb_green"
     t.integer  "sb_yellow"
     t.integer  "sb_pink"
+    t.integer  "sb_gold"
+    t.integer  "sb_dark_blue"
   end
 
 end

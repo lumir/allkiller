@@ -11,6 +11,8 @@
   = f.text_field :phone
   = f.label "Fecha:"
   = f.text_field :deliver_date, :class => "datepicker" 
+  = f.label "Manteles sencillos:"
+  = f.text_field :tablecloth, :class => "pricing", "data-pricing" => "tablecloth"
 .span4  
   = f.label "Sillas:"
   = f.text_field :chairs, :class => "pricing", "data-pricing" => "chairs"
@@ -22,17 +24,19 @@
   = f.text_field :small_chairs, :class => "pricing", "data-pricing" => "chairs"
   = f.label "Forros de sillas:"
   = f.text_field :chaircloth, :class => "pricing", "data-pricing" => "tablecloth"
-.span4
-  = f.label "Manteles sencillos:"
-  = f.text_field :tablecloth, :class => "pricing", "data-pricing" => "tablecloth"
   = f.label "Manteles Grandes:"
   = f.text_field :big_tablecloth, :class => "pricing", "data-pricing" => "big_tablecloth"
+.span4
   = f.label "Manteles amarillos:"
   = f.text_field :sb_yellow, :class => "pricing", "data-pricing" => "tablecloth"
   = f.label "Manteles fuscias:"
   = f.text_field :sb_pink, :class => "pricing", "data-pricing" => "tablecloth"
   = f.label "Manteles verdes:"
   = f.text_field :sb_green, :class => "pricing", "data-pricing" => "tablecloth"
+  = f.label "Manteles Dorados:"
+  = f.text_field :sb_gold, :class => "pricing", "data-pricing" => "tablecloth"
+  = f.label "Manteles Azul T:"
+  = f.text_field :sb_dark_blue, :class => "pricing", "data-pricing" => "tablecloth"
 .span4
   = f.label "Abono:"
   = f.text_field :abono
@@ -51,6 +55,8 @@
       var sb_pink_ammount = $("#alquiler_sb_pink").val();
       var sb_yellow_ammount = $("#alquiler_sb_yellow").val();
       var sb_green_ammount = $("#alquiler_sb_green").val();
+      var sb_gold_ammount = $("#alquiler_sb_gold").val();
+      var sb_dark_blue_ammount = $("#alquiler_sb_dark_blue").val();
       var chairs_ammount = $("#alquiler_chairs").val();      
       var tables_ammount = $("#alquiler_tables").attr("value");      
       var big_tables_ammount = $("#alquiler_big_tables").val();
@@ -63,6 +69,8 @@
       var sb_pink_price = parseInt($("#sb_pink").val());            
       var sb_green_price = parseInt($("#sb_green").val());            
       var sb_yellow_price = parseInt($("#sb_yellow").val());            
+      var sb_gold_price = parseInt($("#sb_gold").val());            
+      var sb_dark_blue_price = parseInt($("#sb_dark_blue").val());            
       var tables_price = parseInt($("#tables").val());            
       var big_tables_price = parseInt($("#big_tables").val());            
       var tablecloth_price = parseInt($("#tablecloth").val());            
@@ -90,6 +98,18 @@
         sb_pink_ammount = 0;
       }else{
         parseInt($("#alquiler_sb_pink").val());
+      }
+
+      if(sb_gold_ammount == ""){
+        sb_gold_ammount = 0;
+      }else{
+        parseInt($("#alquiler_sb_gold").val());
+      }
+
+      if(sb_dark_blue_ammount == ""){
+        sb_dark_blue_ammount = 0;
+      }else{
+        parseInt($("#alquiler_sb_dark_blue").val());
       }
 
       if(sb_green_ammount == ""){
@@ -128,7 +148,7 @@
         parseInt($("#alquiler_big_tablecloth").val());
       }
 
-      var new_total = (sb_yellow_ammount * sb_yellow_price) + (sb_green_ammount * sb_green_price) + (sb_pink_ammount * sb_pink_price) + (chaircloth_ammount * chaircloth_price) + (small_chairs_ammount * small_chairs_price) + (chairs_ammount * chairs_price) + (tables_ammount * tables_price) + (big_tables_ammount * big_tables_price) + (tablecloth_ammount * tablecloth_price) + (big_tablecloth_ammount * big_tablecloth_price);
+      var new_total = (sb_dark_blue_ammount * sb_dark_blue_price) + (sb_gold_ammount * sb_gold_price) + (sb_yellow_ammount * sb_yellow_price) + (sb_green_ammount * sb_green_price) + (sb_pink_ammount * sb_pink_price) + (chaircloth_ammount * chaircloth_price) + (small_chairs_ammount * small_chairs_price) + (chairs_ammount * chairs_price) + (tables_ammount * tables_price) + (big_tables_ammount * big_tables_price) + (tablecloth_ammount * tablecloth_price) + (big_tablecloth_ammount * big_tablecloth_price);
       
       $("#alquiler_total").val(new_total)
     });
