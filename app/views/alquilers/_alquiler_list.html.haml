@@ -1,69 +1,90 @@
-%table.table.table-bordered
-  %thead
+- alquilers.each do |alquiler|
+  %table.table.table-bordered.item-table      
     %tr
       %th
         Nombre      
       %th
-        Sillas
+        Fecha
+      %th
+        Sillas      
       %th
         Sillitas
       %th
-        Forros
+        Forros de Sillas
+    %tr
+      %td
+        = link_to alquiler.name, alquiler_path(alquiler)      
+      %td
+        = alquiler.deliver_date.strftime("%e %B")        
+      %td
+        = alquiler.chairs        
+      %td
+        = alquiler.small_chairs        
+      %td
+        = alquiler.chaircloth        
+    %tr
       %th
         Mesas
       %th
-        Meson
+        Mesones
       %th
-        Mant Senc
+        Manteles Grandes        
       %th
-        Mant Gr
+        Manteles Sencillos
       %th
-        Mant Fus
+        Manteles Rojos
+    %tr
+      %td
+        = alquiler.tables                  
+      %td
+        = alquiler.big_tables        
+      %td        
+        = alquiler.tablecloth
+      %td
+        = alquiler.big_tablecloth        
+      %td
+        = alquiler.sb_red
+    %tr
       %th
-        Mant Ver
+        Manteles Azules
       %th
-        Mant Ama
+        Manteles Dorados
       %th
-        Fecha
+        Manteles Amarillos
+      %th
+        Manteles Verdes
+      %th
+        Manteles Fucsia
+    %tr
+      %td
+        = alquiler.sb_dark_blue
+      %td
+        = alquiler.sb_gold
+      %td        
+        = alquiler.sb_yellow
+      %td
+        = alquiler.sb_green
+      %td
+        = alquiler.sb_pink        
+    %tr
       %th
         Abono
       %th
         Total
       %th
         Resta
-  - alquilers.each do |alquiler|
+      %th
+        Editar
+      %th
+        Borrar
     %tr
-      %td
-        = link_to alquiler.name, alquiler_path(alquiler)      
-      %td
-        = alquiler.chairs
-      %td
-        = alquiler.small_chairs
-      %td
-        = alquiler.chaircloth
-      %td
-        = alquiler.tables
-      %td
-        = alquiler.big_tables
-      %td
-        = alquiler.tablecloth
-      %td
-        = alquiler.big_tablecloth      
-      %td
-        = alquiler.sb_pink      
-      %td
-        = alquiler.sb_green
-      %td
-        = alquiler.sb_yellow      
-      %td
-        = alquiler.deliver_date.strftime("%e %B")
       %td
         = alquiler.abono
       %td
         = alquiler.total
-      %td
+      %td        
         = alquiler.total - alquiler.abono unless alquiler.total.blank? || alquiler.abono.blank?
       %td
         = link_to "Editar", edit_alquiler_path(alquiler)
       %td
-        = link_to "Borrar", alquiler_path(alquiler), method: :delete
+        = link_to "Borrar", alquiler_path(alquiler), method: :delete        

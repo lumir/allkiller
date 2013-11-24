@@ -37,6 +37,8 @@
   = f.text_field :sb_gold, :class => "pricing", "data-pricing" => "tablecloth"
   = f.label "Manteles Azul T:"
   = f.text_field :sb_dark_blue, :class => "pricing", "data-pricing" => "tablecloth"
+  = f.label "Manteles Rojos:"
+  = f.text_field :sb_red, :class => "pricing", "data-pricing" => "tablecloth"
 .span4
   = f.label "Abono:"
   = f.text_field :abono
@@ -53,6 +55,7 @@
       var small_chairs_ammount = $("#alquiler_small_chairs").val();
       var chaircloth_ammount = $("#alquiler_chaircloth").val();
       var sb_pink_ammount = $("#alquiler_sb_pink").val();
+      var sb_red_ammount = $("#alquiler_sb_red").val();
       var sb_yellow_ammount = $("#alquiler_sb_yellow").val();
       var sb_green_ammount = $("#alquiler_sb_green").val();
       var sb_gold_ammount = $("#alquiler_sb_gold").val();
@@ -71,6 +74,7 @@
       var sb_yellow_price = parseInt($("#sb_yellow").val());            
       var sb_gold_price = parseInt($("#sb_gold").val());            
       var sb_dark_blue_price = parseInt($("#sb_dark_blue").val());            
+      var sb_red_price = parseInt($("#sb_red").val());            
       var tables_price = parseInt($("#tables").val());            
       var big_tables_price = parseInt($("#big_tables").val());            
       var tablecloth_price = parseInt($("#tablecloth").val());            
@@ -124,6 +128,12 @@
         parseInt($("#alquiler_sb_yellow").val());
       }
 
+      if(sb_red_ammount == ""){
+        sb_red_ammount = 0;
+      }else{
+        parseInt($("#alquiler_sb_red").val());
+      }
+
       if(tables_ammount == ""){
         tables_ammount = 0;
       }else{
@@ -148,7 +158,7 @@
         parseInt($("#alquiler_big_tablecloth").val());
       }
 
-      var new_total = (sb_dark_blue_ammount * sb_dark_blue_price) + (sb_gold_ammount * sb_gold_price) + (sb_yellow_ammount * sb_yellow_price) + (sb_green_ammount * sb_green_price) + (sb_pink_ammount * sb_pink_price) + (chaircloth_ammount * chaircloth_price) + (small_chairs_ammount * small_chairs_price) + (chairs_ammount * chairs_price) + (tables_ammount * tables_price) + (big_tables_ammount * big_tables_price) + (tablecloth_ammount * tablecloth_price) + (big_tablecloth_ammount * big_tablecloth_price);
+      var new_total = (sb_red_ammount * sb_red_price) + (sb_dark_blue_ammount * sb_dark_blue_price) + (sb_gold_ammount * sb_gold_price) + (sb_yellow_ammount * sb_yellow_price) + (sb_green_ammount * sb_green_price) + (sb_pink_ammount * sb_pink_price) + (chaircloth_ammount * chaircloth_price) + (small_chairs_ammount * small_chairs_price) + (chairs_ammount * chairs_price) + (tables_ammount * tables_price) + (big_tables_ammount * big_tables_price) + (tablecloth_ammount * tablecloth_price) + (big_tablecloth_ammount * big_tablecloth_price);
       
       $("#alquiler_total").val(new_total)
     });
