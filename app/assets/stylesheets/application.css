@@ -11,6 +11,11 @@
  *= require_self
  *= require_tree .
  */
+
+.container{
+  margin-bottom: 100px;
+}
+
 .availability_container {
   margin: 20px 0 20px 0
 }
