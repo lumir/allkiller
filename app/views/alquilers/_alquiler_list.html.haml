@@ -13,11 +13,11 @@
         .item
           = alquiler.deliver_date.strftime("%e %B")        
         .item
-          - unless alquiler.chairs.blank?.blank?
+          - unless alquiler.chairs.blank?
             = alquiler.chairs
             Sillas
         .item
-          - unless alquiler.small_chairs.blank?.blank?
+          - unless alquiler.small_chairs.blank?
             = alquiler.small_chairs        
             Sillitas
         .item
