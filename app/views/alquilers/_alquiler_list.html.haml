@@ -1,6 +1,11 @@
 - alquilers.each do |alquiler|
   .alquiler
-    = link_to alquiler.name, alquiler_path(alquiler)      
+    .row  
+      .span10
+        = link_to alquiler.name, alquiler_path(alquiler)      
+      .pull-right
+        = link_to "Editar", edit_alquiler_path(alquiler)
+        = link_to "Borrar", alquiler_path(alquiler), method: :delete        
     %br
     %br
     .row  
