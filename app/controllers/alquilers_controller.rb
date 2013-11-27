@@ -2,7 +2,8 @@ class AlquilersController < ApplicationController
 
   def index
     @availables = Alquiler.get_available(Date.today)
-    @alquilers = Alquiler.where(:deliver_date => Date.today)
+    #@alquilers = Alquiler.where(:deliver_date => Date.today)
+    @alquilers = Alquiler.all
   end
 
   def show

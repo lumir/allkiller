@@ -1,90 +1,72 @@
 - alquilers.each do |alquiler|
-  %table.table.table-bordered.item-table      
-    %tr
-      %th
-        Nombre      
-      %th
-        Fecha
-      %th
-        Sillas      
-      %th
-        Sillitas
-      %th
-        Forros de Sillas
-    %tr
-      %td
-        = link_to alquiler.name, alquiler_path(alquiler)      
-      %td
-        = alquiler.deliver_date.strftime("%e %B")        
-      %td
-        = alquiler.chairs        
-      %td
-        = alquiler.small_chairs        
-      %td
-        = alquiler.chaircloth        
-    %tr
-      %th
-        Mesas
-      %th
-        Mesones
-      %th
-        Manteles Grandes        
-      %th
-        Manteles Sencillos
-      %th
-        Manteles Rojos
-    %tr
-      %td
-        = alquiler.tables                  
-      %td
-        = alquiler.big_tables        
-      %td        
-        = alquiler.tablecloth
-      %td
-        = alquiler.big_tablecloth        
-      %td
-        = alquiler.sb_red
-    %tr
-      %th
-        Manteles Azules
-      %th
-        Manteles Dorados
-      %th
-        Manteles Amarillos
-      %th
-        Manteles Verdes
-      %th
-        Manteles Fucsia
-    %tr
-      %td
-        = alquiler.sb_dark_blue
-      %td
-        = alquiler.sb_gold
-      %td        
-        = alquiler.sb_yellow
-      %td
-        = alquiler.sb_green
-      %td
-        = alquiler.sb_pink        
-    %tr
-      %th
-        Abono
-      %th
-        Total
-      %th
-        Resta
-      %th
-        Editar
-      %th
-        Borrar
-    %tr
-      %td
-        = alquiler.abono
-      %td
-        = alquiler.total
-      %td        
-        = alquiler.total - alquiler.abono unless alquiler.total.blank? || alquiler.abono.blank?
-      %td
-        = link_to "Editar", edit_alquiler_path(alquiler)
-      %td
-        = link_to "Borrar", alquiler_path(alquiler), method: :delete        
+  .alquiler
+    = link_to alquiler.name, alquiler_path(alquiler)      
+    %br
+    %br
+    .row  
+      .span3    
+        .item
+          = alquiler.deliver_date.strftime("%e %B")        
+        .item
+          - unless alquiler.chairs.blank?.blank?
+            = alquiler.chairs
+            Sillas
+        .item
+          - unless alquiler.small_chairs.blank?.blank?
+            = alquiler.small_chairs        
+            Sillitas
+        .item
+          - unless alquiler.chaircloth.blank?
+            = alquiler.chaircloth
+            Forros
+      .span3
+        .item
+          - unless alquiler.tables.blank?
+            = alquiler.tables
+            Mesas
+        .item
+          - unless alquiler.big_tables.blank?
+            = alquiler.big_tables
+            Mezones
+        .item
+          - unless alquiler.tablecloth.blank?
+            = alquiler.tablecloth
+            Manteles S
+        .item
+          - unless alquiler.big_tablecloth.blank?
+            = alquiler.big_tablecloth       
+            Mantales G
+      .span3
+        .item
+          - unless alquiler.sb_dark_blue.blank?
+            = alquiler.sb_dark_blue
+            Manteles Azul
+        .item
+          - unless alquiler.sb_gold.blank?
+            = alquiler.sb_gold
+            Manteles Dorados
+        .item
+          - unless alquiler.sb_yellow.blank?
+            = alquiler.sb_yellow
+            Manteles Amarillos
+        .item
+          - unless alquiler.sb_green.blank?
+            = alquiler.sb_green
+            Manteles Verdes
+      .span3
+        .item
+          - unless alquiler.sb_pink.blank?
+            = alquiler.sb_pink  
+            Manteles Fucsia
+        .item
+          - unless alquiler.abono.blank?
+            Abono: 
+            = alquiler.abono   
+        .item
+          - unless alquiler.total.blank?
+            Total: 
+            = alquiler.total
+        .item          
+          Resta: 
+          = alquiler.total - alquiler.abono unless alquiler.total.blank? || alquiler.abono.blank?
+        
